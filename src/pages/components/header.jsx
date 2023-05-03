@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import Score from "./score";
 
-const Header = () => {
+const Header = ({ score }) => {
+  return (
+    <header className="w-full bg-black h-36 flex justify-center items-center">
+      <Score score={score} />
+    </header>
+  );
+};
 
-    return(
-        <header className="w-full bg-black h-40">
-        </header>
-    )
-}
-
-export default Header
+export default Header;

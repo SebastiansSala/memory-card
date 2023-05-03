@@ -1,11 +1,27 @@
 import Main from "./components/main";
 import Header from "./components/header";
+import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
+  const [score, setScore] = useState(0);
+  const [cardClicked, setCardClicked] = useState([]);
+
+  const handleScore = (id) => {
+    if (cardClicked.includes(id)) {
+      setScore(0);
+      setCardClicked([]);
+      return;
+    }
+    setCardClicked((prevState) => [...prevState, id]);
+    setScore((prevScore) => prevScore + 1);
+  };
+
   return (
-    <div className="container mx-auto gap-14 w-9/12 h-auto bg-red-500">
-      <Header></Header>
-      <Main></Main>
+    <div className="container mx-auto gap-14 w-full h-auto bg-red-500">
+      <Header score={score} />
+      <Main handleScore={handleScore} score={score} />
     </div>
   );
-}
+};
+
+export default Home;
