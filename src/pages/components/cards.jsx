@@ -52,13 +52,13 @@ const Card = ({ handleScore, score }) => {
       {cards.map((card) => {
         return (
           <div
-            className="h-auto w-40 bg-white rounded shadow-2xl drop-shadow hover:cursor-pointer hover:-translate-y-1 transition"
+            className="h-44 w-44 bg-white rounded shadow-2xl drop-shadow hover:cursor-pointer hover:-translate-y-1 transition"
             key={card.id}
             onClick={() => {
               handleCardClicked(card.id);
             }}
           >
-           <PokemonImage image={card}/>
+            <PokemonImage image={card} />
           </div>
         );
       })}
